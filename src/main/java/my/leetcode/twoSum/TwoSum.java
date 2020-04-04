@@ -17,7 +17,7 @@ public class TwoSum {
     }
 
     /**
-     * best
+     * best 2ms
      * use hash map
      */
     public static class Solution3{
