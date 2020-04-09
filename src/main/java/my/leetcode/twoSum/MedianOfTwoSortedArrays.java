@@ -41,66 +41,6 @@ public class MedianOfTwoSortedArrays {
             throw new IllegalArgumentException("error");
         }
 
-
-        public double median(int[] num1, int[] num2, int leftTail1, int rightHead1, int leftTail2, int rightHead2, boolean even) {
-            int maxLeftPart1 = Integer.MIN_VALUE;
-            int maxLeftPart2 = Integer.MIN_VALUE;
-            int minRightPart1 = Integer.MAX_VALUE;
-            int minRightPart2 = Integer.MAX_VALUE;
-
-            if (0 <= leftTail1 && leftTail1 < num1.length) {
-                maxLeftPart1 = num1[leftTail1];
-            }
-
-            if (0 <= leftTail2 && leftTail2 < num2.length) {
-                maxLeftPart2 = num2[leftTail2];
-            }
-
-            if (0 <= rightHead1 && rightHead1 < num1.length) {
-                minRightPart1 = num1[rightHead1];
-            }
-            if (0 <= rightHead2 && rightHead2 < num2.length) {
-                minRightPart2 = num2[rightHead2];
-            }
-
-            int maxLeft = Math.max(maxLeftPart1, maxLeftPart2);
-            int minRight = Math.min(minRightPart1, minRightPart2);
-            if (maxLeft <= minRight) {
-                if (even) {
-                    return (maxLeft + minRight) / 2d;
-                } else {
-                    return maxLeft;
-                }
-            }
-
-            if (maxLeftPart1 > minRightPart2) {
-                if (leftTail1 == 0) {
-                    return median(num1, num2, -1, 0, leftTail2, rightHead2, even);
-                }
-                int leftPart1Length = leftTail1 + 1;
-                int nextLeftTail1 = leftPart1Length / 2 - (leftPart1Length % 2 == 0 ? 1 : 0);
-                int nextRightHead1 = nextLeftTail1 + 1;
-                return median(num1, num2, nextLeftTail1, nextRightHead1, leftTail2, rightHead2, even);
-            } else {
-                if (leftTail2 == 0) {
-                    return median(num1, num2, leftTail1, rightHead1, -1, 0, even);
-                }
-                int leftPart2Length = leftTail2 + 1;
-                int nextLeftTail2 = leftPart2Length / 2 - (leftPart2Length % 2 == 0 ? 1 : 0);
-                int nextRightHead2 = nextLeftTail2 + 1;
-                return median(num1, num2, leftTail1, rightHead1, nextLeftTail2, nextRightHead2, even);
-            }
-        }
-
-        public double median(int[] nums) {
-            int length = nums.length;
-            boolean even = length % 2 == 0;
-            if (even) {
-                return (nums[(length / 2) - 1] + nums[length / 2]) / 2d;
-            } else {
-                return nums[length / 2];
-            }
-        }
     }
 
     static class Solution {
