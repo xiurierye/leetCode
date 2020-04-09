@@ -1,6 +1,5 @@
 package my.leetcode.twoSum;
 
-import org.junit.Assert;
 import org.junit.Ignore;
 import org.junit.Test;
 
@@ -65,7 +64,6 @@ public class MedianOfTwoSortedArraysTest {
     }
 
     @Test
-    @Ignore
     public void oxr(){
         boolean t=true;
         boolean f = false;

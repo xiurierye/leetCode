@@ -8,16 +8,37 @@ public class MedianOfTwoSortedArrays {
 
     static class Solution2 {
         public double findMedianSortedArrays(int[] nums1, int[] nums2) {
-            int length1 = nums1.length;
-            int length2 = nums2.length;
-            if (length1 == 0) {
-                return median(nums2);
-            }
-            if (length2 == 0) {
-                return median(nums1);
-            }
+            int m = nums1.length;
+            int n = nums2.length;
+            int[] finalNums1 = m >= n ? nums2 : nums1;
+            int[] finalNums2 = m >= n ? nums1 : nums2;
+            m = finalNums1.length;
+            n = finalNums2.length;
 
-            return median(nums1, nums2, length1 / 2 - (length1 % 2 == 0 ? 1 : 0), length1 / 2 + length1 % 2, length2 / 2 - (length2 % 2 == 0 ? 1 : 0), length2 / 2 + length2 % 2, (length1 + length2) % 2 == 0);
+
+            int iMin = 0;
+            int iMax = m;
+            for (int i = (m+1) / 2; i >= 0 && i <= m; i = (iMin + iMax + 1 ) / 2) {
+                int j = (m + n + 1) / 2 - i;
+                int maxLeftA = i == 0 ? Integer.MIN_VALUE : finalNums1[i - 1];
+                int maxLeftB = j == 0 ? Integer.MIN_VALUE : finalNums2[j - 1];
+                int minRightA = i == m ? Integer.MAX_VALUE : finalNums1[i];
+                int minRightB = j == n ? Integer.MAX_VALUE : finalNums2[j];
+
+                if (maxLeftA <= minRightB && maxLeftB <= minRightA) {
+                    return (m + n) % 2 == 0 ? (Math.max(maxLeftA, maxLeftB) + Math.min(minRightA, minRightB)) / 2d :
+                            Math.max(maxLeftA, maxLeftB);
+                }
+
+                if (maxLeftA > minRightB) {
+                    iMax = i - 1;
+                } else//if (maxLeftB >minRightA)
+                {
+                    iMin = i;
+                }
+
+            }
+            throw new IllegalArgumentException("error");
         }
 
 
@@ -48,12 +69,7 @@ public class MedianOfTwoSortedArrays {
                 if (even) {
                     return (maxLeft + minRight) / 2d;
                 } else {
-                    if ((leftTail1==-1? 0:(leftTail1+1)) + (leftTail2==-1? 0:(leftTail2+1)) <= (num1.length + num2.length)/2) {
-                        return minRight;
-                    }
-                    else {
-                        return maxLeft;
-                    }
+                    return maxLeft;
                 }
             }
 
