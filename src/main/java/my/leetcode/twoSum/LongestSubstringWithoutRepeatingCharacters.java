@@ -44,95 +44,95 @@ public class LongestSubstringWithoutRepeatingCharacters {
     }
 
 
-}
+    /**
+     * fixme 这个solution 有问题，hashMap 的初始大小会影响测试情况
+     */
+    static class Solution {
+        public int lengthOfLongestSubstring(String s) {
 
-/**
- * sliding window
- */
-class Solution1 {
-    public int lengthOfLongestSubstring(String s) {
-        int length = s.length();
-        if (length == 0) {
-            return 0;
+            Map<String, Integer> map = new HashMap<>(100);
+
+            traverse(s, map);
+
+            return map.values().stream().mapToInt(value -> value).max().orElse(0);
         }
-        if (length == 1) {
-            return 1;
-        }
-        Map<Character, Integer> map = new HashMap<>();
-        int head = 0;
-        int tail = head;
-        int max = 0;
-        for (; tail < length ; tail++) {
-            char tailChar = s.charAt(tail);
-            if (map.containsKey(tailChar)) {
-                head = Math.max(map.get(tailChar), head);
+
+
+        public void traverse(String s, Map<String, Integer> map) {
+            if (s.length() == 0) {
+                return;
             }
 
-            max = Math.max(tail-head+1,max);
-            map.put(tailChar,tail+1);
-        }
+            boolean startsWith = false;
 
-        return max;
-    }
-
-
-}
-
-/**
- * fixme 这个solution 有问题，hashMap 的初始大小会影响测试情况
- */
-class Solution {
-    public int lengthOfLongestSubstring(String s) {
-
-        Map<String, Integer> map = new HashMap<>(100);
-
-        traverse(s, map);
-
-        return map.values().stream().mapToInt(value -> value).max().orElse(0);
-    }
-
-
-    public void traverse(String s, Map<String, Integer> map) {
-        if (s.length() == 0) {
-            return;
-        }
-
-        boolean startsWith = false;
-
-        Iterator<String> iterator = map.keySet().iterator();
-        if (iterator.hasNext()) {
-            String subStringInMap = iterator.next();
-//            String subStringInMap = entry.getKey();
-            startsWith = s.startsWith(subStringInMap);
-            if (startsWith) {
-                int i = nextMaxSubStringIndex(s, subStringInMap, map);
-                traverse(s.substring(i), map);
-            }
-        }
-
-
-        if (!startsWith) {
-            int i = nextMaxSubStringIndex(s, "", map);
-            traverse(s.substring(1), map);
-        }
-    }
-
-    private int nextMaxSubStringIndex(String str, String subStringInMap, Map<String, Integer> map) {
-        String subStr = subStringInMap;
-        for (int i = subStringInMap.length(); i < str.length(); i++) {
-            String charStr = str.substring(i, i + 1);
-            if (subStr.contains(charStr)) {
-                if (subStr.length() != 1) {
-                    map.put(subStr, subStr.length());
+            Iterator<String> iterator = map.keySet().iterator();
+            if (iterator.hasNext()) {
+                String subStringInMap = iterator.next();
+    //            String subStringInMap = entry.getKey();
+                startsWith = s.startsWith(subStringInMap);
+                if (startsWith) {
+                    int i = nextMaxSubStringIndex(s, subStringInMap, map);
+                    traverse(s.substring(i), map);
                 }
-                return i;
-            } else {
-                subStr = subStr.concat(str.substring(i, i + 1));
+            }
+
+
+            if (!startsWith) {
+                int i = nextMaxSubStringIndex(s, "", map);
+                traverse(s.substring(1), map);
             }
         }
-        map.put(subStr, subStr.length());
 
-        return subStr.length();
+        private int nextMaxSubStringIndex(String str, String subStringInMap, Map<String, Integer> map) {
+            String subStr = subStringInMap;
+            for (int i = subStringInMap.length(); i < str.length(); i++) {
+                String charStr = str.substring(i, i + 1);
+                if (subStr.contains(charStr)) {
+                    if (subStr.length() != 1) {
+                        map.put(subStr, subStr.length());
+                    }
+                    return i;
+                } else {
+                    subStr = subStr.concat(str.substring(i, i + 1));
+                }
+            }
+            map.put(subStr, subStr.length());
+
+            return subStr.length();
+
+        }
+    }
+
+    /**
+     * sliding window
+     */
+    static class Solution1 {
+        public int lengthOfLongestSubstring(String s) {
+            int length = s.length();
+            if (length == 0) {
+                return 0;
+            }
+            if (length == 1) {
+                return 1;
+            }
+            Map<Character, Integer> map = new HashMap<>();
+            int head = 0;
+            int tail = head;
+            int max = 0;
+            for (; tail < length ; tail++) {
+                char tailChar = s.charAt(tail);
+                if (map.containsKey(tailChar)) {
+                    head = Math.max(map.get(tailChar), head);
+                }
+
+                max = Math.max(tail-head+1,max);
+                map.put(tailChar,tail+1);
+            }
+
+            return max;
+        }
+
 
     }
 }
+
