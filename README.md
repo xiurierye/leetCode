@@ -3,4 +3,6 @@
 ## Add Two Numbers
 ## Longest Substring Without Repeating Characters 
 ## Median of Two Sorted Arrays
-## Longest Palindromic Substring
+## Longest Palindromic Substring  
+   动态规划
+## ZigZag Conversion
