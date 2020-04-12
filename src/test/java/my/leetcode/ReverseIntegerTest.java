@@ -1,6 +1,7 @@
 package my.leetcode;
 
 import my.leetcode.ReverseInteger.Solution;
+import my.leetcode.ReverseInteger.Solution1;
 import org.junit.Test;
 
 import static org.junit.Assert.*;
@@ -10,7 +11,7 @@ import static org.junit.Assert.*;
  * @Time 4/12/20
  */
 public class ReverseIntegerTest {
-    Solution solution = new Solution();
+    Solution1 solution = new Solution1();
 
     @Test
     public void pow (){
