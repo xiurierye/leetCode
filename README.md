@@ -1,5 +1,5 @@
 # leetcode
-默认用java实现，刷完后可以使用其他语言，作为学习语言的练习题
+- 第一轮 默认用java实现
 ## Two Sum 
 ## Add Two Numbers
 ## Longest Substring Without Repeating Characters 
@@ -11,3 +11,5 @@
 ##  String to Integer (atoi)
    有穷状态机器
    if-else 很多的情况；
+## Palindrome Number
+   管解有点巧妙
