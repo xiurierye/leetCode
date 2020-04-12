@@ -8,3 +8,6 @@
    动态规划
 ## ZigZag Conversion
 ## Reverse Integer
+##  String to Integer (atoi)
+   有穷状态机器
+   if-else 很多的情况；

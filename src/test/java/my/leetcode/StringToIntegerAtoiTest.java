@@ -1,12 +1,12 @@
 package my.leetcode;
 
-import my.leetcode.StringToIntegerAtoi.Solution;
+import my.leetcode.StringToIntegerAtoi.*;
 import org.junit.Test;
 
 import static org.junit.Assert.*;
 
 public class StringToIntegerAtoiTest {
-    Solution solution = new Solution();
+    Solution1 solution = new Solution1();
 
     @Test
     public void test0() {

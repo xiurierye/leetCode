@@ -5,6 +5,58 @@ import java.util.Map;
 
 public class StringToIntegerAtoi {
 
+    static class Solution1 {
+
+        class Automaton {
+            final String START = "start";
+            final String SIGNED = "signed";
+            final String IN_NUM = "in_number";
+            final String END = "end";
+            String state = START;
+            Map<String, String[]> map;
+            public int sign = 1;
+            public long ans = 0;
+
+            public Automaton() {
+                map = new HashMap<>();
+                map.put(START, new String[]{START, SIGNED, IN_NUM, END});
+                map.put(SIGNED, new String[]{END, END, IN_NUM, END});
+                map.put(IN_NUM, new String[]{END, END, IN_NUM, END});
+                map.put(END, new String[]{END, END, END, END});
+            }
+
+            public int get_col(char c) {
+                if (c == ' ') return 0;
+                if (c == '+' || c == '-') return 1;
+                if (c >= '0' && c <= '9') return 2;
+                return 3;
+            }
+
+            public void get(char c) {
+                state = map.get(state)[get_col(c)];
+                if (state.equals(IN_NUM)) {
+                    ans = ans * 10 + c - '0';
+                    if (sign == 1) {
+                        ans = Math.min(ans, Integer.MAX_VALUE);
+                    } else {
+                        // -(long)Integer.MIN_VALUE，这个操作有点东西，不然越界
+                        ans = Math.min(ans, -(long)Integer.MIN_VALUE);
+                    }
+                } else if (state.equals(SIGNED))
+                    sign = c == '+' ? 1 : -1;
+            }
+        }
+
+        public int myAtoi(String str) {
+            Automaton automaton = new Automaton();
+            char[] c = str.toCharArray();
+            for (char ch : c) {
+                automaton.get(ch);
+            }
+            return automaton.sign * ((int) automaton.ans);
+        }
+    }
+
     static class Solution {
         public int myAtoi(String str) {
             char zero = '0';
@@ -19,18 +71,6 @@ public class StringToIntegerAtoi {
 
             int maxRemain = Integer.MAX_VALUE / 10;
             int minRemain = Integer.MIN_VALUE / 10;
-//            Map<Character, Integer> characterIntegerMap = new HashMap<>();
-//            characterIntegerMap.put('1', 1);
-//            characterIntegerMap.put('2', 1);
-//            characterIntegerMap.put('3', 1);
-//            characterIntegerMap.put('4', 1);
-//            characterIntegerMap.put('5', 1);
-//            characterIntegerMap.put('6', 1);
-//            characterIntegerMap.put('7', 1);
-//            characterIntegerMap.put('8', 1);
-//            characterIntegerMap.put('9', 9);
-//            characterIntegerMap.put('0', 0);
-
 
             for (int i = 0; i < length; i++) {
                 char c = str.charAt(i);
@@ -66,7 +106,6 @@ public class StringToIntegerAtoi {
                     }
 
                     value = Character.getNumericValue(c) * prefix + value * 10;
-
 
                 }
 
