@@ -1,4 +1,4 @@
-package my.leetcode.twoSum;
+package my.leetcode;
 
 public class ZigZagConversion {
 

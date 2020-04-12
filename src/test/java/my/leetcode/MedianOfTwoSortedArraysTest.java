@@ -1,6 +1,5 @@
-package my.leetcode.twoSum;
+package my.leetcode;
 
-import org.junit.Ignore;
 import org.junit.Test;
 
 import static org.junit.Assert.*;

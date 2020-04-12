@@ -1,6 +1,6 @@
-package my.leetcode.twoSum;
+package my.leetcode;
 
-import my.leetcode.twoSum.ZigZagConversion.Solution;
+import my.leetcode.ZigZagConversion.Solution;
 import org.junit.Assert;
 import org.junit.Test;
 
