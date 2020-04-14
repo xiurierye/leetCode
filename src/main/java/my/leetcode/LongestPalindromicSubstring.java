@@ -8,7 +8,7 @@ import java.util.Set;
  * @author zhaoji004
  * @Time 4/10/20
  */
-public class LongestPalindromicSubstring {
+public class LongestPalindromicSubstring implements  Medium{
 
     public static class Solution1 {
         public String longestPalindrome(String s) {

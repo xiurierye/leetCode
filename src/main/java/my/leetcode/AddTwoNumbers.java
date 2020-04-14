@@ -1,6 +1,6 @@
 package my.leetcode;
 
-public class AddTwoNumbers {
+public class AddTwoNumbers  implements Medium{
 
     public static void main(String[] args) {
 

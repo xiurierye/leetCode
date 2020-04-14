@@ -3,7 +3,7 @@ package my.leetcode;
 import java.util.HashMap;
 import java.util.Map;
 
-public class StringToIntegerAtoi {
+public class StringToIntegerAtoi  implements  Medium{
 
     static class Solution1 {
 

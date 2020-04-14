@@ -3,7 +3,7 @@ package my.leetcode;
 
 import java.util.HashMap;
 
-public class TwoSum {
+public class TwoSum implements Easy {
     public static void main(String[] args) {
         int[] ints = new Solution1().twoSum(new int[]{3,2,3},6);
         int[] ints1 = new Solution1().twoSum(new int[]{2, 7, 11, 15}, 9);

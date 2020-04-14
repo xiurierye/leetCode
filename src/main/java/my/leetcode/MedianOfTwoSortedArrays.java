@@ -1,6 +1,6 @@
 package my.leetcode;
 
-public class MedianOfTwoSortedArrays {
+public class MedianOfTwoSortedArrays implements  Hard {
     public static void main(String[] args) {
         Solution solution = new Solution();
 

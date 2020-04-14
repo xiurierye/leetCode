@@ -4,7 +4,7 @@ package my.leetcode;
  * @author zhaoji004
  * @Time 4/13/20
  */
-public class PalindromeNumber {
+public class PalindromeNumber implements  Easy {
     static class Solution {
         public boolean isPalindrome(int x) {
             int maxRemain = Integer.MAX_VALUE / 10;

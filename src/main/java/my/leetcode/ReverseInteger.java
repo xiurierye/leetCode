@@ -6,7 +6,7 @@ import java.util.ArrayList;
  * @author zhaoji004
  * @Time 4/12/20
  */
-public class ReverseInteger {
+public class ReverseInteger implements Easy {
 
     static class Solution1{
         public int reverse(int x) {

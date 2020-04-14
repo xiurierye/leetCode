@@ -1,6 +1,6 @@
 package my.leetcode;
 
-public class ZigZagConversion {
+public class ZigZagConversion implements Medium{
 
     static class Solution {
         public String convert(String s, int numRows) {

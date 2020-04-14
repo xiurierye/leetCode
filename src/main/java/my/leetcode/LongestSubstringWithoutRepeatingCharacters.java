@@ -2,7 +2,7 @@ package my.leetcode;
 
 import java.util.*;
 
-public class LongestSubstringWithoutRepeatingCharacters {
+public class LongestSubstringWithoutRepeatingCharacters implements Medium {
     public static void main(String[] args) {
         Solution1 solution = new Solution1();
 
