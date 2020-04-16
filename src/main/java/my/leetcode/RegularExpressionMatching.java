@@ -9,14 +9,14 @@ import java.util.List;
  * @author zhaoji004
  * @Time 4/13/20
  */
-public class RegularExpressionMatching implements Hard {
+public class RegularExpressionMatching implements DynamicProgramming, Hard {
     static class Solution2 {
         public boolean isMatch(String text, String pattern) {
             if (pattern.isEmpty()) return text.isEmpty();
             boolean first_match = (!text.isEmpty() &&
                     (pattern.charAt(0) == text.charAt(0) || pattern.charAt(0) == '.'));
 
-            if (pattern.length() >= 2 && pattern.charAt(1) == '*'){
+            if (pattern.length() >= 2 && pattern.charAt(1) == '*') {
                 return (isMatch(text, pattern.substring(2)) ||
                         (first_match && isMatch(text.substring(1), pattern)));
             } else {
@@ -24,7 +24,6 @@ public class RegularExpressionMatching implements Hard {
             }
         }
     }
-
 
 
     static class Solution {
@@ -37,13 +36,13 @@ public class RegularExpressionMatching implements Hard {
                 return noWildcard(s, p);
             }
             List<String> segments = new ArrayList<>();
-            splitter(p,segments);
+            splitter(p, segments);
             return withWildcard(s, segments, 0);
         }
 
-        public void splitter(String p,List<String> segments) {
-            for (int i = 0; i  < p.length(); ) {
-                if (i+1<p.length() ){
+        public void splitter(String p, List<String> segments) {
+            for (int i = 0; i < p.length(); ) {
+                if (i + 1 < p.length()) {
                     char c = p.charAt(i + 1);
                     if (c == WILDCARD) {
                         segments.add(p.substring(i, i + 2));
@@ -52,8 +51,7 @@ public class RegularExpressionMatching implements Hard {
                         segments.add(p.substring(i, i + 1));
                         i++;
                     }
-                }
-                else{
+                } else {
                     segments.add(p.substring(i, i + 1));
                     i++;
                 }
@@ -61,10 +59,10 @@ public class RegularExpressionMatching implements Hard {
         }
 
         public boolean noWildcard(String s, String p) {
-            if (s.length()==0 && p.length()==0) {
+            if (s.length() == 0 && p.length() == 0) {
                 return true;
             }
-            if (s.length()==0 ^ p.length()==0){
+            if (s.length() == 0 ^ p.length() == 0) {
                 return false;
             }
 
@@ -77,7 +75,7 @@ public class RegularExpressionMatching implements Hard {
         }
 
         public boolean withWildcard(String s, List<String> segments, int index) {
-            if (index> (segments.size()-1)){
+            if (index > (segments.size() - 1)) {
                 return s.isEmpty();
             }
 
@@ -85,16 +83,15 @@ public class RegularExpressionMatching implements Hard {
 
             boolean isDot = segment.charAt(0) == DOT;
 
-            boolean equals = (!s.isEmpty())&&   (isDot || segment.charAt(0) == s.charAt(0));
+            boolean equals = (!s.isEmpty()) && (isDot || segment.charAt(0) == s.charAt(0));
 
 
-           if (segment.length() == 2){
-               return  withWildcard(s,segments,index+1) ||
-                       ( equals && withWildcard(s.substring(1),segments,index)) ;
-           }
-           else {
-               return  equals && withWildcard(s.substring(1),segments,index+1);
-           }
+            if (segment.length() == 2) {
+                return withWildcard(s, segments, index + 1) ||
+                        (equals && withWildcard(s.substring(1), segments, index));
+            } else {
+                return equals && withWildcard(s.substring(1), segments, index + 1);
+            }
 
         }
 
