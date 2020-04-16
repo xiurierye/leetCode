@@ -11,19 +11,18 @@ import static org.junit.Assert.*;
  */
 public class RegularExpressionMatchingTest {
 
-    Solution solution = new Solution();
+    RegularExpressionMatching.Solution solution = new RegularExpressionMatching.Solution();
 
-    enum action {hold, action}
 
 
     @Test
     public void testEnum() {
-        System.out.println(action.hold.ordinal());
+        System.out.println("a".substring(1));
     }
 
     @Test
     public void test0() {
-        boolean match = solution.isMatch("aa", "a");
+        boolean match = solution.isMatch("aa", "**");
         System.out.println(match);
         assertFalse(match);
     }
@@ -51,17 +50,25 @@ public class RegularExpressionMatchingTest {
 
     @Test
     public void test4() {
-        boolean match = solution.isMatch("mississippi", "mis*is*p*.");
+        boolean match = solution.isMatch("mississippi", "mis*is*ip*.");
         System.out.println(match);
-        assertFalse(match);
+        assertTrue(match);
+    }
+    @Test
+    public void test4_1() {
+        RegularExpressionMatching.Solution2 solution2=new RegularExpressionMatching.Solution2();;
+        boolean match = solution2.isMatch("mississippi", "mis*is*ip*.");
+        System.out.println(match);
+        assertTrue(match);
     }
 
     @Test
     public void test5() {
-        boolean match = solution.isMatch("ab", ".*c");
+        boolean match = solution.isMatch("aa", "aa");
         System.out.println(match);
-        assertFalse(match);
+        assertTrue(match);
     }
+
 
 
 
