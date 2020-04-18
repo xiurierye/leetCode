@@ -8,7 +8,7 @@
    动态规划
 ## ZigZag Conversion
 ## Reverse Integer
-##  String to Integer (atoi)
+## String to Integer (atoi)
    有穷状态机器
    if-else 很多的情况；
 ## Palindrome Number
@@ -16,3 +16,6 @@
 ## Regular Expression Matching
    我是憨憨
 ## Container With Most Water
+## Integer to Roman
+## Roman to Integer
+## Longest Common Prefix
