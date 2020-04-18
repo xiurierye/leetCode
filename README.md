@@ -19,3 +19,5 @@
 ## Integer to Roman
 ## Roman to Integer
 ## Longest Common Prefix
+   一鱼多吃，简单题目5种方法
+## ThreeSum
