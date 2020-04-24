@@ -1,96 +1,69 @@
 package my.leetcode;
 
-import java.util.*;
-import java.util.stream.Collectors;
+import java.util.ArrayList;
+import java.util.Arrays;
+import java.util.List;
 
-public class ThreeSum {
+public class ThreeSum implements Medium, TwoPointers {
 
     static class Solution {
 
-        Map<Integer, Integer> solutions = new HashMap<>();
-        Set<result> lists = new HashSet<result>();
-
-        int[] n;
-
         public List<List<Integer>> threeSum(int[] nums) {
-            n = nums;
-            this.twoSum(0, 0, 3, new ArrayList<>());
-            return lists.stream().map(result::list).collect(Collectors.toList());
-        }
+            List<List<Integer>> lists = new ArrayList<>();
+            if (nums == null || nums.length < 3) {
+                return lists;
+            }
 
-
-        /**
-         * @param index 当前下标
-         * @param x     目标x
-         * @return
-         */
-        public void twoSum(int index, int x, int splitter, List<Integer> list) {
-            if (splitter == 1) {
-                for (int i = index; i < n.length; i++) {
-                    int a = n[i];
-                    if (a == x ) {
-
-                        int max = Math.max(list.get(0), list.get(1));
-                        int min = Math.min(list.get(0), list.get(1));
-
-                        int min1 = Math.min(min, a);
-                        int max1 = Math.max(a, max);
-                        lists.add(new result(  min1,-min1 - max1,max1));
-                        break;
-                    }
+            Arrays.sort(nums);
+            for (int i = 0; i < nums.length; i++) {
+                int num = nums[i];
+                if (num > 0) {
+                    break;
                 }
-                return;
+
+                if (i - 1 >= 0 && nums[i] == nums[i - 1]) {
+                    continue;
+                }
+
+                int left = i + 1;
+                int right = nums.length - 1;
+
+                while (left < right) {
+
+                    int i1 = num + nums[left] + nums[right];
+                    if (i1 == 0) {
+                        ArrayList<Integer> integers = new ArrayList<>();
+                        integers.add(num);
+                        integers.add(nums[left]);
+                        integers.add(nums[right]);
+                        lists.add(integers);
+                        left++;
+                        while (left < right && nums[left] == nums[left - 1]) {
+                            left++;
+                        }
+                        right--;
+                        while (right > left && nums[right] == nums[right + 1]) {
+                            right--;
+                        }
+                    } else if (i1 < 0) {
+                        left++;
+                        while (left < right && nums[left] == nums[left - 1]) {
+                            left++;
+                        }
+                    } else {
+                        right--;
+                        while (right > left && nums[right] == nums[right + 1]) {
+                            right--;
+                        }
+                    }
+
+                }
+
+
             }
 
-
-            for (int i = index; i < n.length; i++) {
-                int num = n[i];
-                int y = x - num;
-
-
-
-                ArrayList<Integer> newList = new ArrayList<>(list);
-                newList.add(num);
-                twoSum(i + 1, y, splitter - 1, newList);
-//                solutions.put(Math.min(x, y), Math.max(x, y));
-            }
+            return lists;
         }
-
-        class result {
-            int a;
-            int b;
-            int c;
-
-            public result(int a, int b, int c) {
-                this.a = a;
-                this.b = b;
-                this.c = c;
-            }
-
-            @Override
-            public boolean equals(Object o) {
-                if (this == o) return true;
-                if (o == null || getClass() != o.getClass()) return false;
-                result result = (result) o;
-                return a == result.a &&
-                        b == result.b &&
-                        c == result.c;
-            }
-
-            @Override
-            public int hashCode() {
-                return Objects.hash(a, b, c);
-            }
-
-            public List<Integer> list() {
-                ArrayList<Integer> integers = new ArrayList<>();
-                integers.add(a);
-                integers.add(b);
-                integers.add(c);
-                return integers;
-            }
-        }
-
     }
 
 }

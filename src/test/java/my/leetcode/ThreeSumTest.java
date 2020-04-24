@@ -44,4 +44,11 @@ public class ThreeSumTest {
         System.out.println(lists);
     }
 
+    @Test
+    public void test5(){
+        List<List<Integer>> lists = solution.threeSum(new int[]{-1,-1, 0,0, 1,1});
+
+        System.out.println(lists);
+    }
+
 }
