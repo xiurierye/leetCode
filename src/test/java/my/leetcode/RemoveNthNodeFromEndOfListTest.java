@@ -11,14 +11,29 @@ public class RemoveNthNodeFromEndOfListTest {
 
     RemoveNthNodeFromEndOfList.Solution solution = new RemoveNthNodeFromEndOfList.Solution();
 
-    public void buildListNode(int count){
+    public ListNode buildListNode(int count){
         ListNode header=null;
         for (int i = count; i > 0; i--) {
-            ListNode next = new ListNode(i).next;
-            next=header;
+            ListNode next = new ListNode(i);
+            next.next=header;
             header = next;
+
         }
 
+        return header;
+
+    }
+
+    @Test
+    public void viewListNode(){
+        int count = 10;
+        ListNode listNode = buildListNode(count);
+
+        while (listNode!=null){
+            System.out.print(listNode.val );
+            listNode=listNode.next;
+                System.out.print(listNode!= null?"->":"\n");
+        }
     }
 
 }
