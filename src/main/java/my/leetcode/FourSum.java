@@ -9,7 +9,7 @@ import java.util.stream.Collectors;
  * @author zhaoji004
  * @Time 4/28/20
  */
-public class FourSum {
+public class FourSum implements Medium{
     static class Solution {
         List<List<Integer>> result = new ArrayList<>();
         int[] nums;
