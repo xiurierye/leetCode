@@ -17,15 +17,17 @@ public class RemoveNthNodeFromEndOfList implements Medium {
         public ListNode removeNthFromEnd(ListNode head, int n) {
             Map<Integer,ListNode> nodeMap = new HashMap<>();
             int i = 0;
-            while (head.next!=null){
-                nodeMap.put(i++,head);
+            ListNode temp =head;
+            while (temp!=null){
+                nodeMap.put(i++,temp);
+                temp=temp.next;
             }
             int index = nodeMap.size() - n;
             ListNode listNode = nodeMap.get(index);
             if  (index == 0 ){
                 return nodeMap.get(1);
             }
-            else if (index==n){
+            else if (index==nodeMap.size()){
                  nodeMap.get(index-1).next=null;
                  return head;
             }else {
