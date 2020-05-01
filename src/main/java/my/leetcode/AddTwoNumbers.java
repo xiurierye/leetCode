@@ -1,5 +1,7 @@
 package my.leetcode;
 
+import my.leetcode.util.ListNode;
+
 public class AddTwoNumbers  implements Medium{
 
     public static void main(String[] args) {
@@ -48,12 +50,5 @@ public class AddTwoNumbers  implements Medium{
 
     }
 
-    class ListNode {
-        int val;
-        ListNode next;
 
-        ListNode(int x) {
-            val = x;
-        }
-    }
 }

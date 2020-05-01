@@ -1,5 +1,7 @@
 package my.leetcode;
 
+import my.leetcode.util.ListNode;
+
 import java.util.HashMap;
 import java.util.Map;
 
@@ -37,12 +39,5 @@ public class RemoveNthNodeFromEndOfList implements Medium {
         }
     }
 
-    static public class ListNode {
-        int val;
-        ListNode next;
 
-        public ListNode(int x) {
-            val = x;
-        }
-    }
 }

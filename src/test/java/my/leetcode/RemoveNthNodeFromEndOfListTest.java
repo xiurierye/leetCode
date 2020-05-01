@@ -1,6 +1,6 @@
 package my.leetcode;
 
-import my.leetcode.RemoveNthNodeFromEndOfList.ListNode;
+import my.leetcode.util.ListNode;
 import org.junit.Test;
 
 /**
