@@ -3,8 +3,8 @@ package my.leetcode;
 import org.junit.Test;
 
 import java.util.List;
+import java.util.stream.Collectors;
 
-import static org.junit.Assert.*;
 
 public class GenerateParenthesesTest {
 
@@ -38,9 +38,23 @@ public class GenerateParenthesesTest {
         System.out.println(strings);
     }
     @Test
+    public void test5() {
+        List<String> strings = solution.generateParenthesis(5);
+        System.out.println(strings);
+        System.out.println(strings.size());
+    }
+
+    @Test
+    public void test6() {
+        List<String> strings = solution.generateParenthesis(6);
+        System.out.println(strings.stream().map(s -> "\""+s+"\"").sorted().collect(Collectors.joining(",","[","]")));
+        System.out.println(strings.size());
+    }
+    @Test
     public void test10() {
         List<String> strings = solution.generateParenthesis(10);
         System.out.println(strings);
+        System.out.println(strings.size());
     }
 
 }
