@@ -8,7 +8,7 @@ import java.util.stream.Collectors;
 
 public class GenerateParenthesesTest {
 
-    GenerateParentheses.Solution solution = new GenerateParentheses.Solution();
+    GenerateParentheses.Solution1 solution = new GenerateParentheses.Solution1();
 
     @Test
     public void test() {
@@ -36,6 +36,7 @@ public class GenerateParenthesesTest {
     public void test4() {
         List<String> strings = solution.generateParenthesis(4);
         System.out.println(strings);
+        System.out.println(strings.size());
     }
     @Test
     public void test5() {
