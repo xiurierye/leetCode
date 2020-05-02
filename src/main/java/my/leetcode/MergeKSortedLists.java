@@ -2,33 +2,61 @@ package my.leetcode;
 
 import my.leetcode.util.ListNode;
 
-import java.util.Arrays;
-import java.util.List;
-import java.util.stream.Collectors;
-import java.util.stream.Stream;
-
-public class MergeKSortedLists {
+public class MergeKSortedLists implements Hard {
 
 
-    class Solution {
+    static class Solution {
         public ListNode mergeKLists(ListNode[] lists) {
-            ListNode head=null;
-            List<ListNode> h = Stream.of(lists).collect(Collectors.toList());
-            int[] headValue =new int[h.size()];
-            while (h.size()!=0){
-                ListNode tmpHead=null;
-                for (int i = 0; i < h.size(); i++) {
-                    if (h.get(i) ==null) {
-                        headValue[i]=Integer.MAX_VALUE;
-                        continue;
-                    }
 
-                    headValue[i]=h.get(i).val;
+            ListNode head;
+            int min = Integer.MAX_VALUE - 1;
+            int secondMin = Integer.MAX_VALUE;
+            int minIndex = 0;
+            ListNode minHead = null;
+            for (int i = 0; i < lists.length; i++) {
+                if (lists[i] == null) {
+                    continue;
                 }
-                Arrays.sort(headValue);
+
+                int val = lists[i].val;
+
+                if (val <= min) {
+                    min = val;
+                    secondMin = min;
+                    minIndex = i;
+                    minHead = lists[i];
+                } else if (val <= secondMin) {
+                    secondMin = val;
+                }
 
             }
-            return head;
+            head = minHead;
+            if (head == null) {
+                return null;
+            }
+
+            if (lists[minIndex].next == null) {
+                lists[minIndex] = null;
+                head.next = mergeKLists(lists);
+                return head;
+            }
+
+            while (lists[minIndex].next != null) {
+                if (lists[minIndex].next.val <= secondMin) {
+                    lists[minIndex] = lists[minIndex].next;
+                } else {
+                    ListNode tmp = lists[minIndex];
+                    lists[minIndex] = lists[minIndex].next;
+                     tmp.next = mergeKLists(lists);
+                     return head;
+                }
+            }
+           ListNode end =  lists[minIndex];
+             lists[minIndex] = null;
+             end.next = mergeKLists(lists);
+             return head;
         }
+
+
     }
 }
