@@ -12,6 +12,7 @@ public class ReverseNodesInKGroupTest {
     @Test
     public void test1() {
         System.out.println(solution.reverseKGroup(Utils.intArray2ListNode(new int[]{1, 2,3,4,5,6,7}), 5));
+        System.out.println(solution.reverseKGroup(Utils.intArray2ListNode(new int[]{1, 2, 3, 4, 5}), 6));
     }
 
     @Test
