@@ -17,11 +17,16 @@ public class Utils {
 
     }
 
-    public static void print (ListNode listNode){
+    public static String print (ListNode listNode){
+        StringBuilder sb = new StringBuilder();
         while (listNode!=null){
-            System.out.print(listNode.val );
+           sb.append(listNode.val );
             listNode=listNode.next;
-            System.out.print(listNode!= null?"->":"\n");
+            boolean b = listNode != null;
+            if (b){
+                sb.append("->");
+            }
         }
+        return sb.toString();
     }
 }
