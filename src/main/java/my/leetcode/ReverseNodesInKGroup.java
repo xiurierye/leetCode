@@ -4,7 +4,7 @@ import my.leetcode.util.ListNode;
 
 import java.util.List;
 
-public class ReverseNodesInKGroup {
+public class ReverseNodesInKGroup implements Hard {
     static class Solution {
 
         public ListNode reverseKGroup(ListNode head, int k) {
