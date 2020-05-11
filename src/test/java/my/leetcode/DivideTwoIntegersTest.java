@@ -33,7 +33,7 @@ public class DivideTwoIntegersTest {
     }
     @Test
     public void test4(){
-        int divide = solution.divide(-2147483648,2);
+        int divide = solution.divide(-2147483648,-2);
         System.out.println(divide);
     }
 
