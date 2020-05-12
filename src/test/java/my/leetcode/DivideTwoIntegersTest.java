@@ -50,7 +50,20 @@ public class DivideTwoIntegersTest {
     public void test4(){
         int divide = solution.divide(-2147483648,-2);
         System.out.println(divide);
-        assertEquals(divide,-1073741824);
+        assertEquals(divide,1073741824);
+    }
+
+    @Test
+    public void test6(){
+        int divide = solution.divide(-2147483648,-1);
+        System.out.println(divide);
+        assertEquals(divide,2147483647);
+    }
+    @Test
+    public void test7(){
+        int divide = solution.divide(2147483647,3);
+        System.out.println(divide);
+        assertEquals(divide,715827882);
     }
 
 }

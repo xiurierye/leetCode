@@ -1,25 +1,33 @@
 package my.leetcode;
 
-import javax.swing.plaf.IconUIResource;
-import java.util.ArrayList;
-import java.util.Arrays;
+import java.util.*;
 
 public class DivideTwoIntegers implements Medium {
 
     static class Solution {
-        int absDividend;
-        int absDivisor;
 
-        int prefix = 1;
+
 
         public int divide(int dividend, int divisor) {
-            if (dividend == Integer.MIN_VALUE && divisor == 1) {
+            List<Integer[]> valuePow = new ArrayList<>();
+//            if (dividend == Integer.MIN_VALUE && divisor == 1) {
+//                return Integer.MAX_VALUE;
+//            }
+            if (dividend == Integer.MIN_VALUE && divisor == -1){
                 return Integer.MAX_VALUE;
             }
+//            if (dividend == Integer.MAX_VALUE && divisor == -1){
+//                return Integer.MIN_VALUE;
+//            }
+//            if (dividend == Integer.MAX_VALUE && divisor == 1){
+//                return Integer.MIN_VALUE;
+//            }
+
 
 
             int d1 = dividend & Integer.MIN_VALUE;
             int d2 = divisor & Integer.MIN_VALUE;
+            int prefix = 1;
             if (d1 == 0 ^ d2 == 0) {
                 prefix = -1;
             }
@@ -33,56 +41,57 @@ public class DivideTwoIntegers implements Medium {
                 d2 = (~d2) + 1;
             }
 
-            int[] doubleDivisor = new int[30];
-            doubleDivisor[0] = d2;
-            int i = 1;
-            for (; i < doubleDivisor.length; i++) {
-                int i1 = doubleDivisor[i - 1] << 1;
-                doubleDivisor[i]=i1;
-                if (i1 <= d1){
+            int pow = 1;
+            int value = d2;
+            for (;;) {
+                if ( value >= d1){
+                    Integer [] term = new Integer[2];
+                    term[0] = value;
+                    term[1] = pow;
+                    valuePow.add(term);
+                }
+
+                final int remain = Integer.MIN_VALUE - value;
+                if (remain > value){
+                    break;
+                }else {
+                    value = value<<1;
+                    pow = pow<<1;
+                }
+            }
+
+//            this.print(valuePow);
+
+
+            int sum =0;
+            int n =0;
+            for (int index = valuePow.size()-1; index >= 0; index--) {
+                final Integer[] term = valuePow.get(index);
+                final Integer powValue = term[0];
+                final Integer p = term[1];
+
+                if (Integer.MIN_VALUE -sum  > powValue){
+                    continue;
+                }
+
+                final int tempSum = powValue + sum;
+                if (tempSum == d1) {
+                    n+= p;
                     break;
                 }
+                if (tempSum > d1) {
+                    n += p;
+                    sum = tempSum;
+                }
             }
 
-
-            System.out.println(Arrays.toString(doubleDivisor));
-            System.out.println(i);
-            int sum=0;
-            ArrayList<Integer> list = new ArrayList<>();
-            for (int i1 = doubleDivisor.length - 1; i1 >= 0; i1--) {
-                int current = doubleDivisor[i1];
-                if (current == 0 ){
-                    continue;
-                }
-
-                if (  (sum + current ) < d1){
-                    continue;
-                }
-
-                sum += current;
-                 list.add(i1);
-
+            return prefix ==-1 ? -n : n;
+        }
+        private  void print(List<Integer[]> list){
+            for (int i = 0; i < list.size(); i++) {
+                final Integer[] array = list.get(i);
+                System.out.println(Arrays.toString(array));
             }
-
-            System.out.println(list);
-            System.out.println(list.size());
-
-            int sum1 = list.stream().mapToInt(value -> {
-                int e = 1;
-                for (int j = 0; j < value; j++) {
-                    e = e << 1;
-                }
-                System.out.println( value + ":"+e);
-                return e;
-            }).sum();
-
-            if (prefix ==-1){
-                return -sum1;
-            }else {
-                return sum1;
-            }
-
-
         }
     }
 
