@@ -5,7 +5,7 @@ import my.leetcode.util.Utils;
 import java.util.ArrayList;
 import java.util.Arrays;
 
-public class NextPermutation {
+public class NextPermutation implements Medium{
     static class Solution {
         public void nextPermutation(int[] nums) {
             if (nums.length==0){
