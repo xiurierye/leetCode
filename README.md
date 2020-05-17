@@ -32,6 +32,8 @@
 ## Reverse Nodes in k-Group
 ## Remove Duplicates from Sorted Array
 ## Remove Element
-## Implement strStr()
-## Divide Two Integers
-## Substring with Concatenation of All Words
+## 28 Implement strStr()
+## 29 Divide Two Integers
+## 30 Substring with Concatenation of All Words
+解答太慢了
+## 31 Next Permutation
