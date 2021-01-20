@@ -9,7 +9,7 @@ import java.util.Map;
  * Follow up:
  * Could you do this in one pass?
  *
- * @author zhaoji004
+ * @author xiurierye
  * @Time 4/28/20
  */
 public class RemoveNthNodeFromEndOfList implements Medium {

@@ -3,7 +3,7 @@ package my.dataStructrue;
 import my.leetcode.util.Utils;
 
 /**
- * @author zhaoji004
+ * @author xiurierye
  * @Time 1/19/21
  */
 public class BubbleSort implements SortInterface {

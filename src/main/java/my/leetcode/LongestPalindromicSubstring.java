@@ -5,7 +5,7 @@ import java.util.Optional;
 import java.util.Set;
 
 /**
- * @author zhaoji004
+ * @author xiurierye
  * @Time 4/10/20
  */
 public class LongestPalindromicSubstring implements  Medium{

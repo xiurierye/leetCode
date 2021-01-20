@@ -4,7 +4,7 @@ import java.util.ArrayList;
 import java.util.List;
 
 /**
- * @author zhaoji004
+ * @author xiurierye
  * @Time 4/13/20
  */
 public class RegularExpressionMatching implements DynamicProgramming, Hard {

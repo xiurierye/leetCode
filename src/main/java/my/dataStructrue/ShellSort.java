@@ -1,7 +1,7 @@
 package my.dataStructrue;
 
 /**
- * @author zhaoji004
+ * @author xiurierye
  * @Time 1/19/21
  */
 public class ShellSort  implements SortInterface{
