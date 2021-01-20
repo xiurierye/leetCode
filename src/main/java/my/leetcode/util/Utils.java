@@ -14,8 +14,15 @@ public class Utils {
         return  null;
     }
 
+    /**
+     * 输出数组值
+     * @param array
+     * @return
+     */
     public  static String printArray(Object [] array){
-       return Stream.of(array).map(Object::toString).collect(Collectors.joining(","));
+        String collect = Stream.of(array).map(Object::toString).collect(Collectors.joining(","));
+        System.out.println(collect);
+        return collect;
     }
 
     public  static  void  print(Object object){
