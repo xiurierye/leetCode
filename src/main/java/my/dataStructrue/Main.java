@@ -4,7 +4,7 @@ import static my.dataStructrue.SortInterface.print;
 
 public class Main {
 
-    public static final int N = 10;
+    public static final int N = 1000;
 
     public static void main(String[] args) {
 

@@ -25,7 +25,7 @@ public class QuickSort implements SortInterface {
             return;
         }
 
-        int index = quickSort(arr, l, r);
+        int index = partition(arr, l, r);
 
         innerSort(arr, l, index - 1);
         innerSort(arr, index + 1, r);
@@ -34,44 +34,31 @@ public class QuickSort implements SortInterface {
     /**
      * 对 [l,r] 中的数据进行快排 ，返回 下标 k ，满足 一下
      * arr[l,k-1]  <  arr[k]  < arr[k+1,r]
-     * 99, 1, 1, 1, 23, 6, 4, 7, 8, 9
-     * i
-     * j
-     * v
-     * <p>
-     * 其中最重要的部分是 控制 i  j  v 的初始位置
-     * j 永远跟着 v 走
-     * i 初始位置在 flag 处
-     *
+     * 99, 1, 1, 1, 23, 4,116, 1117, 11118, 1119
+     *                  j
+     *                                             i
      * @param arr
      * @param l
      * @param r
      * @return
      */
-    private int quickSort(int[] arr, int l, int r) {
+    private int partition(int[] arr, int l, int r) {
 
         int flag = arr[l];
 
-        int i = l;
-        int j = l + 1;
-        int v = l + 1;
+        int j = l;
 
-        for (; v <= r; v++) {
-            if (arr[v] < flag) {
-                i++;
-                swap(i, v, arr);
-                j = v;
-            }
 
-            if (arr[v] > flag) {
-                j = v;
-
+        for (int i = l + 1; i <= r; i++) {
+            if(arr[i]< flag){
+                swap(j+1,i,arr);
+                j++;
             }
         }
 
-        swap(i, l, arr);
+        swap(l, j, arr);
 
-        return i;
+        return j;
     }
 
 
