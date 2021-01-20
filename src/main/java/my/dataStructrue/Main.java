@@ -4,12 +4,12 @@ import static my.dataStructrue.SortInterface.print;
 
 public class Main {
 
-    public static final int N = 200000;
+    public static final int N = 10;
 
     public static void main(String[] args) {
 
 
-        int[] arr = SortInterface.generateRandomArray(N, 0, 100000);
+        int[] arr = SortInterface.generateRandomArray(N, 0, 1);
 
         print(arr);
 
@@ -20,9 +20,12 @@ public class Main {
 //        selectSorted.testSort(SortInterface.copy(arr));
 
 
-        MergeSort mergeSort = new MergeSort();
-        mergeSort.testSort(SortInterface.copy(arr),false);
+//        MergeSort mergeSort = new MergeSort();
+//        mergeSort.testSort(SortInterface.copy(arr),false);
 
+
+        QuickSort quickSort = new QuickSort();
+        quickSort.testSort(SortInterface.copy(arr),true);
 
 
 
