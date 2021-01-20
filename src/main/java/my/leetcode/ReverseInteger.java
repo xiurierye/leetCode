@@ -3,7 +3,7 @@ package my.leetcode;
 import java.util.ArrayList;
 
 /**
- * @author zhaoji004
+ * @author xiurierye
  * @Time 4/12/20
  */
 public class ReverseInteger implements Easy {

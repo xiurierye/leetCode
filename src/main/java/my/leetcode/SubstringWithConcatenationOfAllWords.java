@@ -6,7 +6,7 @@ import java.util.LinkedList;
 import java.util.List;
 
 /**
- * @author zhaoji004
+ * @author xiurierye
  * @Time 5/12/20
  */
 public class SubstringWithConcatenationOfAllWords {

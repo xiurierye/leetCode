@@ -10,7 +10,7 @@ import java.util.stream.Collectors;
 import static org.junit.Assert.*;
 
 /**
- * @author zhaoji004
+ * @author xiurierye
  * @Time 4/13/20
  */
 public class PalindromeNumberTest {

@@ -4,7 +4,7 @@ import my.leetcode.util.ListNode;
 import org.junit.Test;
 
 /**
- * @author zhaoji004
+ * @author xiurierye
  * @Time 4/28/20
  */
 public class RemoveNthNodeFromEndOfListTest {

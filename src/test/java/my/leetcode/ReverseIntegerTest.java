@@ -7,7 +7,7 @@ import org.junit.Test;
 import static org.junit.Assert.*;
 
 /**
- * @author zhaoji004
+ * @author xiurierye
  * @Time 4/12/20
  */
 public class ReverseIntegerTest {

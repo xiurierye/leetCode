@@ -1,7 +1,7 @@
 package my.leetcode;
 
 /**
- * @author zhaoji004
+ * @author xiurierye
  * @Time 4/13/20
  */
 public class PalindromeNumber implements  Easy {

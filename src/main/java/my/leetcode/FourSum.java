@@ -6,7 +6,7 @@ import java.util.List;
 import java.util.stream.Collectors;
 
 /**
- * @author zhaoji004
+ * @author xiurierye
  * @Time 4/28/20
  */
 public class FourSum implements Medium{

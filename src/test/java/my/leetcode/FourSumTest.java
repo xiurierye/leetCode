@@ -7,7 +7,7 @@ import java.util.List;
 import static org.junit.Assert.*;
 
 /**
- * @author zhaoji004
+ * @author xiurierye
  * @Time 4/28/20
  */
 public class FourSumTest {

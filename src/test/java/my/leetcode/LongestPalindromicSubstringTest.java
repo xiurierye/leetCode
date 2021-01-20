@@ -5,7 +5,7 @@ import org.junit.Test;
 import static org.junit.Assert.*;
 
 /**
- * @author zhaoji004
+ * @author xiurierye
  * @Time 4/10/20
  */
 public class LongestPalindromicSubstringTest {

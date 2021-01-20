@@ -8,7 +8,7 @@ public class QuickSort implements SortInterface {
 
     @Override
     public int[] sort(int[] arr) {
-        this.innerSort(arr,0, arr.length-1);
+        this.innerSort(arr, 0, arr.length - 1);
 
         return arr;
     }
@@ -35,13 +35,14 @@ public class QuickSort implements SortInterface {
      * 对 [l,r] 中的数据进行快排 ，返回 下标 k ，满足 一下
      * arr[l,k-1]  <  arr[k]  < arr[k+1,r]
      * 99, 1, 1, 1, 23, 6, 4, 7, 8, 9
-     *                              i
-     *                                j
-     *                                v
-     *
+     * i
+     * j
+     * v
+     * <p>
      * 其中最重要的部分是 控制 i  j  v 的初始位置
      * j 永远跟着 v 走
      * i 初始位置在 flag 处
+     *
      * @param arr
      * @param l
      * @param r
@@ -59,16 +60,16 @@ public class QuickSort implements SortInterface {
             if (arr[v] < flag) {
                 i++;
                 swap(i, v, arr);
-                j=v;
+                j = v;
             }
 
-            if (arr[v]> flag){
+            if (arr[v] > flag) {
                 j = v;
 
             }
         }
 
-        swap(i,l,arr);
+        swap(i, l, arr);
 
         return i;
     }
@@ -78,4 +79,5 @@ public class QuickSort implements SortInterface {
     public String name() {
         return "Quick Sort";
     }
+
 }
