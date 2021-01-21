@@ -44,7 +44,7 @@ public interface SortInterface {
         return false;
     }
 
-    default void swap(int index1, int index2, int[] arr) {
+    static void swap(int index1, int index2, int[] arr) {
         int temp = arr[index1];
 
         arr[index1] = arr[index2];
@@ -70,6 +70,20 @@ public interface SortInterface {
             int i1 = secureRandom.nextInt(rangR - rangeL + 1) + rangeL;
 
             integer[i] = i1;
+        }
+        return integer;
+    }
+
+    static int[] generateNearlyOrderedArray(int n,int random) {
+        int[] integer = new int[n];
+        for (int i = 0; i < n; i++) {
+            integer[i] = i;
+        }
+        SecureRandom secureRandom = new SecureRandom();
+        for (int i = 0; i < random; i++) {
+            int l = secureRandom.nextInt(n);
+            int r = secureRandom.nextInt(n);
+            swap(l,r,integer);
         }
         return integer;
     }

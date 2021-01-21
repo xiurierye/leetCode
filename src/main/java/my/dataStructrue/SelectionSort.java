@@ -19,7 +19,7 @@ public class SelectionSort implements SortInterface {
                 }
             }
 
-            this.swap(i, max, arr);
+            SortInterface.swap(i, max, arr);
 
         }
 

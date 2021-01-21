@@ -51,12 +51,12 @@ public class QuickSort implements SortInterface {
 
         for (int i = l + 1; i <= r; i++) {
             if(arr[i]< flag){
-                swap(j+1,i,arr);
+                SortInterface.swap(j+1,i,arr);
                 j++;
             }
         }
 
-        swap(l, j, arr);
+        SortInterface.swap(l, j, arr);
 
         return j;
     }
