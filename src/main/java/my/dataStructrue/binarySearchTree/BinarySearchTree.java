@@ -1,6 +1,6 @@
 package my.dataStructrue.binarySearchTree;
 
-public class BinarySearchTree<K, V> {
+public class BinarySearchTree<K extends Comparable<K>, V> {
 
     private Node<K, V> root;
     private int count;
@@ -10,6 +10,35 @@ public class BinarySearchTree<K, V> {
         count = 0;
     }
 
+    public void insert(K key, V value) {
+
+
+
+    }
+
+    private void innerInsert(Node<K,V> root, K key,V value) {
+        int i = key.compareTo(root.key);
+        if (i ==0){
+            root.value = value;
+        }
+        else if (i<0){
+            if (root.left==null){
+                root.left= new Node<>(key, value);
+                return;
+            }
+            innerInsert(root.left,key,value);
+        }else {
+            if (root.right==null){
+                root.right= new Node<>(key, value);
+                return;
+            }
+            innerInsert(root.right,key,value);
+        }
+
+
+
+    }
+
     public int size(){
         return count;
     }
@@ -17,6 +46,7 @@ public class BinarySearchTree<K, V> {
     public boolean isEmpty(){
         return root==null;
     }
+
 
     private static class Node<K, V> {
         K key;
