@@ -41,7 +41,9 @@ public class Main {
 
             bst.insert(arr[i],arr[i]);
         }
-        System.out.println(bst);
+
+
+        bst.midOrder((key, value) -> System.out.print(key+" "));
 
 
 
