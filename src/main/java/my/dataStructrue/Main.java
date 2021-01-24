@@ -43,7 +43,7 @@ public class Main {
         }
 
 
-        bst.midOrder((key, value) -> System.out.print(key+" "));
+        System.out.println(bst);
 
 
 

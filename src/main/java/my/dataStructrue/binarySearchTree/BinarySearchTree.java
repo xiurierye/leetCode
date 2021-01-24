@@ -127,10 +127,11 @@ public class BinarySearchTree<K extends Comparable<K>, V> {
 
     @Override
     public String toString() {
-        return "BinarySearchTree{" +
-                "root=" + root +
-                ", count=" + count +
-                '}';
+
+        this.midOrder(root,(k, v) -> System.out.print(k+" "));
+        System.out.println();
+        return "";
+
     }
 
     public int size() {
