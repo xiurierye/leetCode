@@ -1,5 +1,9 @@
 package my.dataStructrue.binarySearchTree;
 
+import my.leetcode.ValidParentheses;
+
+import java.util.Optional;
+
 public class BinarySearchTree<K extends Comparable<K>, V> {
 
     private Node<K, V> root;
@@ -10,12 +14,54 @@ public class BinarySearchTree<K extends Comparable<K>, V> {
         count = 0;
     }
 
-    public void insert(K key, V value) {
-        this.root = this.innerInsert(root, key, value);
+    public Optional<V> search(K  key){
+        return this.search(root,key);
+    }
+
+    private Optional<V> search(Node<K,V> root, K key) {
+        if (root == null) {
+            return Optional.empty();
+        }
+
+        int i = key.compareTo(root.key);
+        if (i == 0) {
+            return Optional.ofNullable(root.value);
+        }
+        else if(i <0) {
+            return search(root.left,key);
+        }else {
+            return search(root.right,key);
+        }
+    }
+    public boolean contain(K key) {
+        return  this.contain(root,key);
+    }
+
+    private boolean contain(Node<K,V> root ,K key) {
+
+        if (root ==null){
+            return false;
+        }
+        int i = key.compareTo(root.key);
+        if (i ==0){
+            return true;
+        }
+
+        if (i<0){
+            return this.contain(root.left,key);
+        }
+        else {
+            return this.contain(root.right,key);
+        }
 
     }
 
-    private Node<K,V> innerInsert(Node<K, V> root, K key, V value) {
+    public void insert(K key, V value) {
+        this.root = this.insert(root, key, value);
+
+    }
+
+    private Node<K,V> insert(Node<K, V> root, K key, V value) {
         if (root == null) {
             root = new Node<>(key, value);
             return root;
@@ -25,9 +71,9 @@ public class BinarySearchTree<K extends Comparable<K>, V> {
         if (i == 0) {
             root.value = value;
         } else if (i < 0) {
-            root.left = innerInsert(root.left, key, value);
+            root.left = insert(root.left, key, value);
         } else {
-            root.right =  innerInsert(root.right, key, value);
+            root.right =  insert(root.right, key, value);
         }
         return root;
 
