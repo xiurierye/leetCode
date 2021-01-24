@@ -10,6 +10,10 @@ import java.util.concurrent.TimeUnit;
 
 public interface SortInterface {
 
+    default int[]sort(int [] arr,int n){
+        return sort(arr);
+    }
+
     int[] sort(int[] arr);
 
     String name();

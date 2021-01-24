@@ -4,14 +4,14 @@ import static my.dataStructrue.SortInterface.print;
 
 public class Main {
 
-    public static final int N = 10;
+    public static final int N = 1000000;
 
     public static void main(String[] args) {
 
 
-        int[] arr = SortInterface.generateRandomArray(N, 0, N*10);
+        int[] arr = SortInterface.generateRandomArray(N, 0, N * 10);
 
-        print(arr);
+//        print(arr);
 
 //        SortInterface insertionSort = new InsertionSort();
 //        insertionSort.testSort(SortInterface.copy(arr));
@@ -27,18 +27,10 @@ public class Main {
 //        QuickSort quickSort = new QuickSort();
 //        quickSort.testSort(SortInterface.copy(arr),true);
 
+        HeapSort1 heapSort1 = new HeapSort1();
+        heapSort1.testSort(SortInterface.copy(arr));
 
-        MaxHeap maxHeap = new MaxHeap(N);
-
-        for (int i = 0; i < arr.length; i++) {
-            maxHeap.insert(arr[i]);
-        }
-
-        maxHeap.treePrint();
-
-        for (int i = 0; i < N; i++) {
-            System.out.print(maxHeap.extractMax()+" ");
-        }
-
+        HeapSort2 heapSort2 = new HeapSort2();
+        heapSort2.testSort(SortInterface.copy(arr));
     }
 }

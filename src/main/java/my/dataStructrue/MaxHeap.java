@@ -19,6 +19,21 @@ public class MaxHeap {
         this.capacity = capacity;
     }
 
+    public MaxHeap(int[] arr,int n){
+        this.arr = new int[n+1];
+
+        for (int i = 0; i < n; i++) {
+            this.arr[i+1] = arr[i];
+        }
+
+        this.capacity=n;
+        count=n;
+
+        for (int i = this.arr.length/2; i > 0; i--) {
+            this.shiftDown(i);
+        }
+    }
+
 
     public void insert(int n) {
         if (count >= capacity) {
@@ -49,6 +64,9 @@ public class MaxHeap {
 
            if (j+1<=count && arr[j]<arr[j+1]){
                j=j+1;
+           }
+           if (arr[k]>= arr[j]){
+               break;
            }
 
            swap(j,k,arr);
