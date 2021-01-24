@@ -1,11 +1,9 @@
 package my.dataStructrue;
 
 import com.google.common.base.Stopwatch;
-import my.leetcode.util.Utils;
 
 import java.security.SecureRandom;
 import java.util.Arrays;
-import java.util.Comparator;
 import java.util.concurrent.TimeUnit;
 
 public interface SortInterface {
