@@ -1,10 +1,12 @@
 package my.dataStructrue;
 
+import my.dataStructrue.binarySearchTree.BinarySearchTree;
+
 import static my.dataStructrue.SortInterface.print;
 
 public class Main {
 
-    public static final int N = 1000000;
+    public static final int N = 10;
 
     public static void main(String[] args) {
 
@@ -27,10 +29,21 @@ public class Main {
 //        QuickSort quickSort = new QuickSort();
 //        quickSort.testSort(SortInterface.copy(arr),true);
 
-        HeapSort1 heapSort1 = new HeapSort1();
-        heapSort1.testSort(SortInterface.copy(arr));
+//        HeapSort1 heapSort1 = new HeapSort1();
+//        heapSort1.testSort(SortInterface.copy(arr));
+//
+//        HeapSort2 heapSort2 = new HeapSort2();
+//        heapSort2.testSort(SortInterface.copy(arr));
 
-        HeapSort2 heapSort2 = new HeapSort2();
-        heapSort2.testSort(SortInterface.copy(arr));
+
+        BinarySearchTree<Integer, Integer> bst = new BinarySearchTree<>();
+        for (int i = 0; i < arr.length; i++) {
+
+            bst.insert(arr[i],arr[i]);
+        }
+        System.out.println(bst);
+
+
+
     }
 }
