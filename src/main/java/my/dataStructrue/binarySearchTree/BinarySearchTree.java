@@ -1,11 +1,9 @@
 package my.dataStructrue.binarySearchTree;
 
-import my.leetcode.ValidParentheses;
-
 import java.util.Optional;
+import java.util.Queue;
+import java.util.concurrent.ArrayBlockingQueue;
 import java.util.function.BiConsumer;
-import java.util.function.Consumer;
-import java.util.function.Function;
 
 public class BinarySearchTree<K extends Comparable<K>, V> {
 
@@ -26,6 +24,25 @@ public class BinarySearchTree<K extends Comparable<K>, V> {
     public  void postOrder(BiConsumer<K,V> consumer) {
         this.postOrder(root,consumer);
     }
+
+    public void levelOrder(BiConsumer<K, V> consumer) {
+        ArrayBlockingQueue<Node<K,V>> queue=new ArrayBlockingQueue<>(this.count);
+        queue.add(root);
+        while (!queue.isEmpty()){
+            Node<K, V> node = queue.remove();
+            consumer.accept(node.key,node.value);
+
+            if (node.left!=null){
+                queue.add(node.left);
+            }
+            if (node.right != null) {
+                queue.add(node.right);
+            }
+        }
+
+
+    }
+
 
     /**
      * 在c++中删除树，整个左右节点都 删除了，再删除根节点
@@ -110,6 +127,7 @@ public class BinarySearchTree<K extends Comparable<K>, V> {
     private Node<K, V> insert(Node<K, V> root, K key, V value) {
         if (root == null) {
             root = new Node<>(key, value);
+            count++;
             return root;
         }
 
@@ -127,9 +145,10 @@ public class BinarySearchTree<K extends Comparable<K>, V> {
 
     @Override
     public String toString() {
-
+        System.out.println("----");
         this.midOrder(root,(k, v) -> System.out.print(k+" "));
         System.out.println();
+        System.out.println("----");
         return "";
 
     }
