@@ -2,17 +2,19 @@ package my.dataStructrue;
 
 import my.dataStructrue.binarySearchTree.BinarySearchTree;
 
+import static my.dataStructrue.SortInterface.print;
+
 public class Main {
 
-    public static final int N = 7;
+    public static final int N = 10;
 
     public static void main(String[] args) {
 
 
-        int[] arr = SortInterface.generateRandomArray(N, 0, N * 10);
+        int[] arr = SortInterface.generateRandomArray(N, 0, N );
 
-/*
         print(arr);
+        /*
         SortInterface insertionSort = new InsertionSort();
         insertionSort.testSort(SortInterface.copy(arr));
 
@@ -37,9 +39,24 @@ public class Main {
         }
 
 
-        System.out.print(bst);
+        bst.midOrder((integer, integer2) -> System.out.print(integer+" "));
 
-        bst.levelOrder((key, value) -> System.out.print(key+ " ") );
+        System.out.println();
+//        for (int i : arr) {
+//            bst.removeMinimum();
+//            bst.midOrder((integer, integer2) -> System.out.print(integer+" "));
+//            System.out.println();
+//        }
+
+
+        bst.remove(arr[N/2]);
+
+        bst.midOrder((integer, integer2) -> System.out.print(integer+" "));
+
+
+
+
+
 
 
 
