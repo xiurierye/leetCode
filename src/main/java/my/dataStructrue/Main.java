@@ -6,14 +6,14 @@ import static my.dataStructrue.SortInterface.print;
 
 public class Main {
 
-    public static final int N = 10;
+    public static final int N = 100000;
 
     public static void main(String[] args) {
 
 
-        int[] arr = SortInterface.generateRandomArray(N, 0, N );
-
-        print(arr);
+//        int[] arr = SortInterface.generateRandomArray(N, 0, N );
+//
+//        print(arr);
         /*
         SortInterface insertionSort = new InsertionSort();
         insertionSort.testSort(SortInterface.copy(arr));
@@ -32,16 +32,16 @@ public class Main {
 */
 
 
-        BinarySearchTree<Integer, Integer> bst = new BinarySearchTree<>();
-        for (int j : arr) {
-
-            bst.insert(j, j);
-        }
-
-
-        bst.midOrder((integer, integer2) -> System.out.print(integer+" "));
-
-        System.out.println();
+//        BinarySearchTree<Integer, Integer> bst = new BinarySearchTree<>();
+//        for (int j : arr) {
+//
+//            bst.insert(j, j);
+//        }
+//
+//
+//        bst.midOrder((integer, integer2) -> System.out.print(integer+" "));
+//
+//        System.out.println();
 //        for (int i : arr) {
 //            bst.removeMinimum();
 //            bst.midOrder((integer, integer2) -> System.out.print(integer+" "));
@@ -49,12 +49,13 @@ public class Main {
 //        }
 
 
-        bst.remove(arr[N/2]);
+//        bst.remove(arr[N/2]);
+//
+//        bst.midOrder((integer, integer2) -> System.out.print(integer+" "));
 
-        bst.midOrder((integer, integer2) -> System.out.print(integer+" "));
 
 
-
+        UnionFindHelper.testUF1(N);
 
 
 
