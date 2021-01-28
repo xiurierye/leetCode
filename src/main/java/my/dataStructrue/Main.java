@@ -1,12 +1,10 @@
 package my.dataStructrue;
 
-import my.dataStructrue.binarySearchTree.BinarySearchTree;
-
-import static my.dataStructrue.SortInterface.print;
+import my.dataStructrue.UnionFind.*;
 
 public class Main {
 
-    public static final int N = 100000;
+    public static final int N = 1000000;
 
     public static void main(String[] args) {
 
@@ -55,8 +53,10 @@ public class Main {
 
 
 
-        UnionFindHelper.testUF1(N);
-
+//        UnionFindHelper.testUF(N,new UnionFind1(N));
+//        UnionFindHelper.testUF(N,new UnionFind2(N));
+        UnionFindHelper.testUF(N,new UnionFind3(N));
+        UnionFindHelper.testUF(N,new UnionFind4(N));
 
 
 

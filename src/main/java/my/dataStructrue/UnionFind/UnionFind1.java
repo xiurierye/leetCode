@@ -1,12 +1,12 @@
-package my.dataStructrue;
+package my.dataStructrue.UnionFind;
 
 /**
  * 基础unionFind
  */
-public class UnionFind1 {
+public class UnionFind1 implements UnionFind{
 
-    private int[] id;
-    private int count;
+    private final int[] id;
+    private final int count;
 
 
     public UnionFind1(int count) {
@@ -24,6 +24,7 @@ public class UnionFind1 {
      * @param p
      * @return
      */
+    @Override
     public int find(int p) {
         assert p >= 0 && p < count;
         return id[p];
@@ -35,10 +36,12 @@ public class UnionFind1 {
      * @param q
      * @return
      */
+    @Override
     public boolean isConnected(int p, int q) {
         return find(p) == find(q);
     }
 
+    @Override
     public void unionElement(int p, int q) {
         int pId = find(p);
         int qId = find(q);
@@ -52,6 +55,11 @@ public class UnionFind1 {
             }
         }
 
+    }
+
+    @Override
+    public String name() {
+        return "UF1";
     }
 
 
