@@ -3,14 +3,16 @@ package my.dataStructrue.UnionFind;
 /**
  * 通过树型结构优化并查集
  * 使用rank 多记录一个  树的高度
+ * 加上路径压缩 思路
+ * 终极路径压缩
  */
-public class UnionFind4 implements UnionFind {
+public class UnionFind6 implements UnionFind {
 
     private final int[] parent;
     private final int[] rank; // rank[i] 表示以i为根的树的层数
     private final int count;
 
-    public UnionFind4(int count) {
+    public UnionFind6(int count) {
         parent = new int[count];
         rank = new int[count];
         this.count = count;
@@ -32,11 +34,11 @@ public class UnionFind4 implements UnionFind {
         assert p >= 0 && p < count;
 
 
-        while (parent[p] != p) {
-            p = parent[p];
+        if (parent[p] != p) {
+            parent[p] = find(parent[p]);
         }
 
-        return p;
+        return parent[p];
     }
 
     public boolean isConnected(int p, int q) {
@@ -67,6 +69,6 @@ public class UnionFind4 implements UnionFind {
 
     @Override
     public String name() {
-        return "UF4";
+        return "UF5";
     }
 }

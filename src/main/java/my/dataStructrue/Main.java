@@ -4,7 +4,7 @@ import my.dataStructrue.UnionFind.*;
 
 public class Main {
 
-    public static final int N = 1000000;
+    public static final int N = 2000000;
 
     public static void main(String[] args) {
 
@@ -57,6 +57,7 @@ public class Main {
 //        UnionFindHelper.testUF(N,new UnionFind2(N));
         UnionFindHelper.testUF(N,new UnionFind3(N));
         UnionFindHelper.testUF(N,new UnionFind4(N));
+        UnionFindHelper.testUF(N,new UnionFind5(N));
 
 
 

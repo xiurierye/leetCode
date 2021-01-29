@@ -65,6 +65,6 @@ public class UnionFind3 implements UnionFind{
 
     @Override
     public String name() {
-        return "UF2";
+        return "UF3";
     }
 }
