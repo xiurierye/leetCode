@@ -1,5 +1,10 @@
 # leetcode
 - 第一轮 默认用java实现
+
+# 方法变量命名建议
+- 回溯 ： backtrack
+- 路径：track
+
 ## Two Sum 
 ## Add Two Numbers
 ## Longest Substring Without Repeating Characters 
