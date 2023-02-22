@@ -2,6 +2,7 @@ package my.leetcode.util;
 
 
 import com.google.gson.Gson;
+import com.google.gson.GsonBuilder;
 import my.leetcode.RemoveNthNodeFromEndOfList;
 
 import java.util.stream.Collectors;
@@ -11,7 +12,13 @@ public class Utils {
 
     public static int[] toIntArray(String str){
 //        new Gson().fromJson(str, new Typ)
-        return  null;
+
+        String[] split = str.split(",");
+        int[] ints = new int[split.length];
+        for (int i = 0; i < split.length; i++) {
+            ints[i] = Integer.parseInt(split[i]);
+        }
+        return  ints;
     }
 
     /**
