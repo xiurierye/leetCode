@@ -1,9 +1,13 @@
 # leetcode
 - 第一轮 默认用java实现
 
+todo
+- 优先级队列
+
 # 方法变量命名建议
 - 回溯 ： backtrack
 - 路径：track
+- 遍历：traverse
 
 ## Two Sum 
 ## Add Two Numbers
