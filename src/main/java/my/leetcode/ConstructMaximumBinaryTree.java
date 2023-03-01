@@ -1,8 +1,10 @@
 package my.leetcode;
 
+import my.leetcode.util.TreeNode;
+
 public class ConstructMaximumBinaryTree  implements Medium{
 
-    public class Solution {
+    static class Solution {
         public TreeNode constructMaximumBinaryTree(int[] nums) {
             if (nums.length == 0) {
                 return null;
@@ -18,7 +20,7 @@ public class ConstructMaximumBinaryTree  implements Medium{
 
             int num = nums[index];
             TreeNode treeNode = new TreeNode(num);
-            TreeNode traverce = traverce(nums, index++);
+            TreeNode traverce = traverce(nums, ++index);
             if (treeNode.val > traverce.val) {
                 treeNode.right = traverce;
                 return treeNode;
