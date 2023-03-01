@@ -114,4 +114,54 @@ public class ReverseNodesInKGroup implements Hard {
             return partTwo;
         }
     }
+
+    //递归 思路
+    class Solution3 {
+        public ListNode reverseKGroup(ListNode head, int k) {
+            if (head ==null) return null;
+            ListNode a=head,b=a;
+            for (int i = 0; i < k; i++) {
+                if(b==null) {
+                    return head;
+                }
+                else b=b.next;
+            }
+
+            ListNode reverse = reverse(a, b);
+            a.next= reverseKGroup(b,k);
+
+            return  reverse;
+        }
+
+        ListNode reverse(ListNode a){
+            ListNode pre,cur,nxt;
+            pre =null;cur=a;nxt = a;
+            while (cur!=null){
+                nxt=cur.next;
+                cur.next = pre;
+
+                pre = cur;
+                cur= nxt;
+            }
+            return pre;
+
+        }
+
+        /** 反转区间 [a, b) 的元素，注意是左闭右开 */
+        ListNode reverse(ListNode a, ListNode b) {
+            ListNode pre, cur, nxt;
+            pre = null; cur = a; nxt = a;
+            // while 终止的条件改一下就行了
+            while (cur != b) {
+                nxt = cur.next;
+                cur.next = pre;
+                pre = cur;
+                cur = nxt;
+            }
+            // 返回反转后的头结点
+            return pre;
+        }
+    }
+
+
 }
